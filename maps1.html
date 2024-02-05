@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Centered Map</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: rgba(0, 125, 35, 0.60); 
+          display: flex;
+          flex-direction: row;
+          justify-content:space-around;
+          align-items: center;
+          height: 100vh; 
+        }
+        #map-container {
+          padding: 50px;
+        }
+        .map {
+          width: 70%;
+          height: 100%;
+          padding: auto;
+        }
+        .information {
+            color: #ffffff; /* Set the font color */
+            font-family: Arial, sans-serif; /* Set the font family */
+            text-align: center;
+            width: 20%;
+            margin-bottom: 20px; /* Adjust spacing between text and map */
+            
+          }
+          .information p{
+            font-size: 2rem;
+            line-height: 1.5;
+          }
+      </style>
+  </head>
+
+  <body>
+    
+    <div class="information">
+        <p>
+            This is where you can find localities and apply markers on the position
+            provided by GPS and you are free to choose the areas you want to make
+            greener.
+        </p>
+    </div>
+    <div class="map">
+      <script>
+        function initMap() {
+          // Specify the center coordinates
+          var center = { lat: 28.5576832763804, lng: 77.19867319112349 };
+  
+          // Create a map object and center it
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: center,
+            zoom: 15 // Adjust the zoom level as needed
+          });
+        }
+      </script>
+      <div id="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7008.804375021763!2d77.19867319112349!3d28.5576832763804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2718a1bb9d7%3A0xfd9760b4153efbec!2sGreen%20Park%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1707050990796!5m2!1sen!2sin" width="1000" height="600" style="border:2px solid black; border-radius: 30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+    
+
+
+  </body>
+</html>

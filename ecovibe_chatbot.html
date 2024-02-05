@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVibe Connect Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        #chat-log {
+            overflow-y: scroll;
+            max-height: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #user-input {
+            width: calc(100% - 80px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+        #send-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>EcoVibe Connect Chatbot</h2>
+    <div id="chat-log"></div>
+    <div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var userInput = document.getElementById("user-input").value;
+        var chatLog = document.getElementById("chat-log");
+        
+        // Display user's message in the chat log
+        chatLog.innerHTML += "<div style='margin-bottom: 5px;'><strong>You:</strong> " + userInput + "</div>";
+
+        // Send user's message to the backend for processing
+        fetch('/chatbot', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: userInput
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display the chatbot's response in the chat log
+            chatLog.innerHTML += "<div style='margin-bottom: 5px;'><strong>Chatbot:</strong> " + data.message + "</div>";
+
+            // Scroll to the bottom of the chat log
+            chatLog.scrollTop = chatLog.scrollHeight;
+        })
+        .catch(error => console.error('Error:', error));
+        
+        // Clear the input field
+        document.getElementById("user-input").value = "";
+    }
+</script>
+
+</body>
+</html>

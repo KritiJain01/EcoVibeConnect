@@ -1,0 +1,23 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    # Get user input from the frontend
+    user_input = request.json['message']
+
+    # Process user input and generate a response
+    # You can implement your logic here to handle user input and generate responses
+    response = generate_response(user_input)
+
+    # Return the response to the frontend
+    return jsonify({'message': response})
+
+def generate_response(user_input):
+    # Your logic for generating responses based on user input
+    # Example logic: Echo the user's message
+    return "You said: " + user_input
+
+if __name__ == '__main__':
+    app.run(debug=True)
