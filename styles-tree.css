@@ -1,0 +1,51 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .container {
+    /* text-align: left; */
+    margin: 5% auto;
+  }
+  
+  .counter {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .congrats {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard {
+    text-align: left;
+  }
+  
+  .leaderboard h2 {
+    margin-bottom: 10px;
+  }
+  
+  #leaderboardList {
+    padding-left: 10px;
+  }
+  
+  #leaderboardList li {
+    margin-bottom: 5px;
+  }
+
+  button{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: larger;
+    border: 2px solid black;
+    border-radius: 50px;
+    cursor: pointer;
+  }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tree Planting Streak</title>
+  <link rel="stylesheet" href="styles-tree.css">
+  <style>
+    body{
+      background-color: #c9e3d2;;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: larger;
+      font-style: normal;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tree Planting Streak Counter</h1>
+    <div class="counter">
+      Trees Planted: <span id="treeCount">0</span>
+    </div>
+    <div class="congrats" id="congratsMessage"></div>
+    <div class="leaderboard">
+      <h2>Leaderboard</h2>
+      <ol id="leaderboardList">
+        <!-- Leaderboard list will be populated dynamically -->
+      </ol>
+    </div>
+    <button onclick="personalTreeCountUpdate()">Plant a Tree</button>
+  </div>
+  <script src="script-tree.js"></script>
+</body>
+</html>
